@@ -1,0 +1,344 @@
+\documentclass{homework}
+\usepackage{amssymb}
+
+\usepackage{multirow}
+
+\title{Econ Lecture 1: Nash Equilibrium}
+\author{Dylan Woollard, Saul Marenco, \\ Seyedmohamad Minoneshan, \& Robert Clark}
+
+\begin{document}
+
+\maketitle
+
+\centerline{\Large\textbf{7.1 Best Response and Nash Equilibrium Definition Convertion}}
+
+\Definition[2.1]\ 
+
+A Nash equilibrium of a strategic game $<N, (A_{i}), (u_{i})>$ is a profile $a^\ast \in A$ of actions with the property that for every player $i \in N$ we have\ 
+
+$(u^\ast _{-i}(a), u^\ast _{i}(a)) \geq _{i} (u^\ast _{-i}(a), u_{i}(a)) \: \forall \:u_{i}  \in  A_{i}$
+
+\Definition[2.2]\ 
+
+The best response function for player $i$, $B_{i}$, is \ 
+
+\indent\hspace{18pt}$B_{i}(a_{-i})=\{ u_{i}(a) \in A_{i} : u(a_{-i}, a_{i}) \geq u(a_{-i}, a_{i}^\ast)  \: \forall \:u(a_{i}^\ast)  \in  A_{i}$ \ 
+
+Then a Nash equilibrium is a profile $u(a^\ast)$ of payoffs for which  \ 
+
+\indent\hspace{18pt}$u(a_{i}^\ast \in B_{i}u(a_{-i}^\ast) \: \forall \: i \in N$
+
+\Definition[6.2]\ 
+
+A Nash equilibrium of a Bayesian game $<N, \Omega, (A_{i}), (T_{i}), (\tau _{i}), (p_{i}), (u_{i})>$ is a Nash equilibrium of the strategic game defined as follows.\ 
+
+The set of players is the set of all pairs $(i, t_{i})$ for $i \in N$ and $t_{i} \in T_{i}$\ 
+
+The set of actions of each player $(i, t_{i})$ is $A_{i}$\
+
+The utility ordering $u_{(i,t_{i})}^\ast$ for each player $(i, t_{i})$ is defined by\ 
+
+\indent\hspace{18pt}$u(a^\ast) \geq_{(i,t_{i})}^\ast u(b^\ast) if \: f \: L_{i} u(a^\ast,t_{i}) \geq_{i} L_{i} u(b^\ast,t_{i})$,\ 
+
+where $L_{i} u(a^\ast,t_{i})$ is the lottery over $A \times \Omega$ that assigns probability $p_{i}(w)\backslash p_{i}(\tau_{i}^{-1}(t_{i}))$ to\
+
+$((a^\ast(j,\tau_{j}(w)))_{j\in N},w)$ if $w \in \tau_{i}^{-1}(t_{i})$, zero otherwise.\\
+
+\clearpage
+\centerline{\Large\textbf{7.2 Interdependence in Risk Analysis}}
+\Definition[1]\ 
+No, we have not assumed that damages resulting from multiple security failures are more severe than those resulting from a single failure. The costs associated with a cyberattack are represented by $pL$ and $qL$, which are the expected losses due to an attack on either the banker's own property or the property of another bank, respectively. These expected losses are calculated based on the probability of an attack (p or q) and the loss from a single attack (L). Therefore, the damages are not assumed to be additive in this scenario.
+
+\Definition[2]\ 
+A strategy is considered a weakly dominant strategy if it gives the best outcome for a player regardless of what the other player chooses. In this case, Invest would be a weakly dominant strategy if, for all values of $Y, c, p, and q$, the expected cost of investing in security is less than or equal to the expected cost of not investing in security.
+
+To find the set of parameter values for which Invest is a weakly dominant strategy, we can compare the expected costs for each decision as follows:
+
+Invest vs. Not Invest:
+$Y - c \; vs. \; Y - [pL + (1 - p)qL]$
+
+Not Invest vs. Invest:
+$Y - [pL + (1 - qLp)] \; vs. \; Y - c$
+
+For Invest to be a weakly dominant strategy, the following conditions must be met:
+
+$Y - c \leq Y - [pL + (1 - p)qL]$
+$Y - [pL + (1 - qLp)] \leq Y - c$
+
+Solving for these inequalities will give us the set of parameter values for which Invest is a weakly dominant strategy.
+
+\Definition[3]\ 
+If Not Invest is the weakly dominant strategy, then this game is strategically equivalent to a Prisoner's Dilemma.
+
+In a Prisoner's Dilemma, two individuals are faced with the choice of either cooperating or defecting, and the outcome of each player depends on both their own choice and the choice of the other player. In this case, investing in security is equivalent to cooperation, while not investing in security is equivalent to defecting. The weakly dominant strategy of Not Invest corresponds to the Nash Equilibrium of a Prisoner's Dilemma, where both individuals choose to defect, leading to a suboptimal outcome for both.
+
+\Definition[4]\ 
+With the given parameter values, we have p = 0.1, q = 0.2, L = 1000, and c = 95. The game can be set up as follows:
+
+\begin{table}[h]
+\begin{tabular}{llll}
+                                           	&                       	& \multicolumn{2}{c}{B2}                                                                                  	\\ \cline{3-4}
+                                           	& \multicolumn{1}{l|}{} 	& \multicolumn{1}{c|}{invest}                             	& \multicolumn{1}{c|}{not invest}                             	\\ \cline{2-4}
+\multicolumn{1}{c|}{\multirow{2}{*}{B1}} & \multicolumn{1}{c|}{invest}  & \multicolumn{1}{l|}{$1000 - 95, 1000 - 95$}  & \multicolumn{1}{l|}{$1000 - 190, 1000 - 100$}  \\ \cline{2-4}
+\multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{not invest} & \multicolumn{1}{l|}{$1000 - 100, 1000 - 190$} & \multicolumn{1}{l|}{$1000 - 300, 1000 - 295$} \\ \cline{2-4}
+\end{tabular}
+\end{table}
+To find the pure strategy Nash equilibria, we need to find the combinations of strategies where neither player has an incentive to change their strategy given the other player's strategy.
+
+A pure strategy Nash equilibrium occurs when both players choose their best response given the other player's strategy. In this case, we can see that both players choosing Not Invest is a pure strategy Nash equilibrium, as neither player has an incentive to switch to Invest.
+
+Thus, the pure strategy Nash equilibrium in this game is (Not Invest, Not Invest).
+
+
+\Definition[5]\ 
+The benefits of security to each banker can be defined as $pL(1-q)$, which represents the expected reduction in losses due to an attack.
+
+To determine if $B1$ should invest in security, we need to compare the benefits of security $(pL(1-q))$ to the costs of investing in security (c). If $pL(1-q) > c$, then $B1$ should invest in security as the benefits are greater than the costs.
+
+Similarly, to determine if $B2$ should invest in security, we need to compare $pL(1-q)$ to c. If $pL(1-q) > c$, then B2 should invest in security as the benefits are greater than the costs.
+
+Therefore, both B1 and B2 should invest in security if $pL(1-q) > c$.
+
+\Definition[6]\ 
+In a five player game of this type, each player $(B1, B2, B3, B4, B5)$ can choose to either Invest or Not Invest in security.
+
+Let's assume that the parameters are the same as in the two player game $(p = 0.1, q = 0.2, L = 1000, c = 95)$.
+
+Each player's payoffs would be as follows:
+\begin{table}[h]
+\begin{tabular}{llll}
+                                           	&                       	& \multicolumn{2}{c}{B5}                                                                                  	\\ \cline{3-4}
+                                           	& \multicolumn{1}{l|}{} 	& \multicolumn{1}{c|}{invest}                             	& \multicolumn{1}{c|}{not invest}                             	\\ \cline{2-4}
+\multicolumn{1}{c|}{\multirow{2}{*}{B4}} & \multicolumn{1}{c|}{invest}  & \multicolumn{1}{l|}{$1000 - 95, 1000 - 95$}  & \multicolumn{1}{l|}{$1000 - 190, 1000 - 100$}  \\ \cline{2-4}
+\multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{not invest} & \multicolumn{1}{l|}{$1000 - 100, 1000 - 190$} & \multicolumn{1}{l|}{$1000 - 300, 1000 - 295$} \\ \cline{2-4}
+\end{tabular}
+\end{table}
+\begin{table}[h]
+\begin{tabular}{llll}
+                                           	&                       	& \multicolumn{2}{c}{B3}                                                                                  	\\ \cline{3-4}
+                                           	& \multicolumn{1}{l|}{} 	& \multicolumn{1}{c|}{invest}                             	& \multicolumn{1}{c|}{not invest}                             	\\ \cline{2-4}
+\multicolumn{1}{c|}{\multirow{2}{*}{B2}} & \multicolumn{1}{c|}{invest}  & \multicolumn{1}{l|}{$1000 - 95, 1000 - 95$}  & \multicolumn{1}{l|}{$1000 - 190, 1000 - 100$}  \\ \cline{2-4}
+\multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{not invest} & \multicolumn{1}{l|}{$1000 - 100, 1000 - 190$} & \multicolumn{1}{l|}{$1000 - 300, 1000 - 295$} \\ \cline{2-4}
+\end{tabular}
+\end{table}
+\begin{table}[h]
+\begin{tabular}{llll}
+                                           	&                       	& \multicolumn{2}{c}{}                                                                                  	\\ \cline{3-4}
+                                           	& \multicolumn{1}{l|}{} 	& \multicolumn{1}{c|}{invest}                             	& \multicolumn{1}{c|}{not invest}                             	\\ \cline{2-4}
+\multicolumn{1}{c|}{\multirow{2}{*}{B1}} & \multicolumn{1}{c|}{invest}  & \multicolumn{1}{l|}{$1000 - 95, 1000 - 95$}  & \multicolumn{1}{l|}{$1000 - 190, 1000 - 100$}  \\ \cline{2-4}
+\multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{not invest} & \multicolumn{1}{l|}{$1000 - 100, 1000 - 190$} & \multicolumn{1}{l|}{$1000 - 300, 1000 - 295$} \\ \cline{2-4}
+\end{tabular}
+\end{table}
+In a five player game, the payoffs for each player would depend on the strategies chosen by all five players. For example, if B1, B2, and B3 invest in security, but B4 and B5 do not, then B1, B2, and B3 would receive payoffs of 1000 - 95, while B4 and B5 would receive payoffs of 1000 - 100.
+
+It is not possible to solve a five player game in the same way as a two player game, as the number of possible combinations of strategies increases with the number of players, making it more complex to determine the Nash Equilibria.
+
+
+
+\clearpage
+\centerline{\Large\textbf{7.3 Complete the Following Problems}}
+
+\exercise[18.2]
+Let the First Price Auction be a game defined as:
+
+\indent\hspace{18pt}$<\{1,2\},(A_{i}),(u_{i})>$
+
+The auction house has a minimum asking price of $p > 0$ and only accepts offers in increments of $n > 0$. 
+
+The action set for each player is defined as:
+
+\indent\hspace{18pt}${\{n+p, 2n+p\}} \in A_{1}$ and ${\{p, n+p\}} \in A_{2}$. 
+
+Player \emph{i} values the item as $v_{i}$ and $v_{1} > v_{2} \geq p$. 
+
+The utility function for each action is given as where $a_{i}$ is any element of $A_{i}$:
+
+\indent\hspace{18pt}$U_{i}(v_{i}, a_{i}) = v_{i} - a_{i}$
+
+Mapping each element of $A_{i}$ to a letter, the preference function for each action is given by:
+
+$a \succcurlyeq_{i} b$ iff $u(a) \geq_{i}^\ast u(b)$
+
+\begin{table}[h]
+\begin{tabular}{llll}
+                                           	&                       	& \multicolumn{2}{c}{Player 2}                                                                                  	\\ \cline{3-4}
+                                           	& \multicolumn{1}{l|}{} 	& \multicolumn{1}{c|}{p}                             	& \multicolumn{1}{c|}{n+p}                             	\\ \cline{2-4}
+\multicolumn{1}{c|}{\multirow{2}{*}{Player 1}} & \multicolumn{1}{c|}{$n+p$}  & \multicolumn{1}{l|}{$v_{1} - (n+p), v_{2} - (p)$}  & \multicolumn{1}{l|}{$v_{1} - (n+p), v_{2} - (n+p)$}  \\ \cline{2-4}
+\multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{$2n+p$} & \multicolumn{1}{l|}{$v_{1} - (2n+p), v_{2} - (p)$} & \multicolumn{1}{l|}{$v_{1} - (2n+p), v_{2} - (n+p)$} \\ \cline{2-4}
+\end{tabular}
+\end{table}
+
+Using the above table, the Nash equilibrium would be the cross-section of the tuple of actions $(n + p, p)$ This would also guarantee that player 1 would win the item because $n + p > p$.
+
+\exercise[18.3]
+Let the Second Price Auction be a game defined as:
+
+\indent\hspace{18pt}$<n,(A_{i}),(u_{i})>$
+
+The action set for each player is defined as:
+
+\indent\hspace{18pt}${\{v_{i}, b_{i}\}} \in A_{i}$
+
+
+Player \emph{i} values the item as $v_{i}$ and $v_{1} > v_{2} > ... > v_{n} > 0$, and $b_{i}$ represents a players bid.
+
+The utility function for the winner is given as $v_{i} - p$ where \emph{p} is the price payed by the winner:
+
+\indent\hspace{18pt}$U_{i}(v_{i}, p) = v_{i} - p$
+
+Since the winner of the second price auction only pays the amount that the second highest bidder offered, the payoff for the highest bidder is always equal to that players utility function. Given that the winning player makes a lower bid than their valuation, their utility would still be the same \emph{ceteris paribus}. This can be shown as:
+
+$p = max(b_{i}) - max(b_{i-1}) \Rightarrow U_{i}(v_{i}, p) = v_{i} - (max(b_{i}) - max(b_{i-1}))$
+
+Since bidding higher than player $i$'s valuation of the item would result in negative utility for player $i$, betting $v_{i} = b_{i}$ would be a weakly dominant action. Furthermore, given that player 1 bets lower than their evaluation, given as: 
+
+$b_{1} < v_{1}$
+
+It is possible for $v_{2} = b_{2} > b_{1}$ which would result in player 1 losing the auction.
+
+\exercise[18.5]
+The game can be formulated as a strategic game defined as:
+
+\indent\hspace{18pt}$<\{1,2\},(A_{i}),(u_{i})>$
+
+The action set for each\emph{i} is defined as:
+
+\indent\hspace{18pt}${\{c_{i}, d_{i}\}} \in A_{i}$
+
+Where $c_{i}$ is \emph{i} conceding and $d_{i}$ is \emph{i} not conceding.
+
+The utility function for each player per round is given as where \emph{p} is the periods of time that have passed, $v_{i}$ is \emph{i}'s valuation of the item, \emph{l} is the constant loss per period of time, and \emph{f} is the fraction of the item that \emph{i} acquired that round:
+
+\indent\hspace{18pt}$U_{i}(v_{i},p,f) = (v_{i} - (l*p))*f$
+
+In this case the highest possible payoff would be $v_{i}$ where $v_{i}$ is the valuation of the item for each \emph{i}. All possible payoffs per unit of time can be shown as:
+
+\begin{table}[h]
+\begin{tabular}{llll}
+                                           	&                       	& \multicolumn{2}{c}{Player 2}                                                                                  	\\ \cline{3-4}
+                                           	& \multicolumn{1}{l|}{} 	& \multicolumn{1}{c|}{c}                             	& \multicolumn{1}{c|}{d}                             	\\ \cline{2-4}
+\multicolumn{1}{c|}{\multirow{2}{*}{Player 1}} & \multicolumn{1}{c|}{c}  & \multicolumn{1}{c|}{$\frac{v_{1} - (l*p)}{2}, \frac{v_{2} - (l*p)}{2}$}  & \multicolumn{1}{c|}{$0, v_{2} - (l*p)$}  \\ \cline{2-4}
+\multicolumn{1}{c|}{}                      	& \multicolumn{1}{c|}{d} & \multicolumn{1}{c|}{$v_{1} - (l*p), 0$} & \multicolumn{1}{c|}{$0, 0$} \\ \cline{2-4}
+\end{tabular}
+\end{table}
+
+Using the information in this table it is reasonable for one or all players to concede immediately because while $d_{i}$ is a weakly dominant strategy, it accrues collective losses overtime, and it makes sense for either one or all players to choose action $c_{i}$ immediately.
+
+\exercise[19.1]
+Let the Location Game be a game defined as:
+
+\indent\hspace{18pt}$<n,(A_{i}),(u_{i})>$
+
+Let $o$ be the decision to not become a candidate.
+
+The action set for each player is defined as:
+
+\indent\hspace{18pt}$\{o, [0,1]\} \in A_{i}$
+
+Let $f$ be the function that represents the political spectrum and $m$ as the middle (this would in theory ensure a candidates maximizes voters)
+
+\indent\hspace{18pt}$m = f(\frac{1}{2})$
+
+The Nash equilibrium  for $n=2$ would be both becoming candidates and choosing $m$ as this would mean they tie for first place, which is better than losing or not becoming a candidate.\ 
+
+The Nash equilibrium  for $n=3$ does not exist, because every balanced scenario involves becoming candidates and choosing $m$, but if $k=3$ then the third candidate has incentive to change slightly to either side of the spectrum, and because votes $=\frac{1}{k}$ when $k$ candidates choose the same point, they would win.
+
+\exercise[20.2]
+($i$) $X=[a,b]=(a-1,b+1)$\ 
+
+($ii$) $X$ is the unit circle, and $f$ is rotation by $90\degree$.
+
+($iii$) $X=[0,1]$ so when $x<\frac{1}{2}$ then $f(x)=1$, when $x>\frac{1}{2}$ then $f(x)=0$, and when $x=\frac{1}{2}$ then $f(x)={0,1}$\ 
+
+($iv$) Similarly as last bullet, $X=[0,1]$ so as long as $x<1$ and $f(1)=0$ then $f(x)=1$\ 
+
+\exercise[20.4]
+Let a Symmetric game $<\{1,2\},(A_i),(\succcurlyeq_i)>$\ 
+
+\indent\hspace{18pt}$(a_{1},a_{2})\succcurlyeq_{1}(b_{1},b_{2})$\ 
+
+if\
+
+\indent\hspace{18pt}$(a_{2},a_{1})\succcurlyeq_{2}(b_{2},b_{1})$ $\forall$ $ a \in A$ and $b \in A$\ 
+
+There is an action $a_{1}^{\ast} \in A_{1}$ such that $(a_{1}^{\ast},a_{1}^{\ast})$ is a Nash Equilibrium. Because we have a symmetric game, that means both players have the same set of actions, and thus the best response of a player will be the same for the other, making $a_{1}^{\ast}=a_{2}^{\ast}$ for example, a fixed point amongst both sets of actions.
+
+\exercise[24.1]
+a. Let $u_i$ be player i's payoff function in the game $G$, let $w_i$ be his payoff function in G', and let $(x^\star, y^\star)$ be a Nash equilibrium of G'. Then, using part (b) of Proposition 5.4, we have:
+
+$$w_1(x^\star, y^\star) = \min_{y} \max_{x} w_1(x, y) \geq \min_{y} \max_{x} u_1(x, y),$$
+
+which is the value of $G$.
+
+b. This follows from part (b) of Proposition 5.4 and the fact that for any function $f$ we have $\max_{x \in X} f(x) \geq \max_{x \in Y} f(x)$ if $Y \subseteq X$.
+
+c. In the unique equilibrium of the game \begin{center}
+\begin{tabular}{ |c|c| } 
+ \hline
+3,3 & 1,1  \\ 
+  \hline
+ 1,0 & 0,1  \\ 
+ \hline
+\end{tabular}
+\end{center}
+player 1 receives a payoff of 3, while in the unique equilibrium of \begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+ 3,3 & 1,1 \\ 
+  \hline
+ 4,0 & 2,1  \\ 
+ \hline
+\end{tabular}
+\end{center} she receives a payoff of 2. If she is prohibited from using her second action in this second game, then she obtains an equilibrium payoff of 3, however.
+
+\exercise[27.2]
+$<\{1,2\}, \{(B,B),(B,S),(S,B),(S,S)\},\{B,S\}, (T_{i}), (\tau _{i}), (p_{i}), (u_{i})>$ where the preferences of each player are represented as $(X,Y)$, $X$ being player 1's and $Y$ player 2's. $w_i$ is the signal function sent by player $i$. If $w_1$ is $B$, the decision that give player 1 the most utility would be $(B,B)$. If $w_2$ is $S$, the decision that gives player 2 the most utility would be $(S,S)$. And therefore the Nash equilibrium $=\{(B,B),(S,S)\}$, as both players get enough utility as long as they go together to the concert, even if it's not their preferred concert.\ 
+
+\exercise[28.1]
+$<\{1,2\}, \{S,S\},\{e,d\}, (T_{i}), (\tau _{i}), (p_{i}), (u_{i})>$\ 
+
+$u_{i}((X,Y),w)=w_j$ only when both players choose to exchange.\ 
+
+$u_{i}((X,Y),w)=w_i$ when only one chooses to exchange or neither do.\ 
+
+In any Nash equilibrium the smallest possible prize will be the highest prize that either player is willing to exchange because the players will only exchange prizes if both players have the smallest possible prize, and each player will keep their prize otherwise. This is because players knowing their prize values greater then the prize value of the other player will never have the incentive to exchange because that would diminish their payoffs, therefore the only way they may choose to exchange would be when they both have the least  value prize.\ 
+
+\exercise[28.2]
+Consider the Bayesian game in which $N = {1, 2}$, $\Theta = {\theta_1, \theta_2}$, the set of actions of player 1 is ${U, D}$, the set of actions of player 2 is ${L, M, R}$, player 1's signal function is defined by $\phi_1(\theta_1) = 1$ and $\phi_1(\theta_2) = 2$, player 2's signal function is defined by $\phi_2(\theta_1) = \phi_2(\theta_2) = 0$, the belief of each player is $(\frac{1}{2}, \frac{1}{2})$, and the preferences of each player are represented by the expected value of the payoff function shown in Figure 6.1 (where $0 < \epsilon < \frac{1}{2}$).
+\begin{center}
+\begin{tabular}{ c|c|c|c| } 
+  & L & M & R \\
+  \hline
+  U & 1,2\epsilon & 1,0 & 1,3\epsilon \\ 
+  \hline
+  D & 2,2 & 0,0 & 0,3  \\ 
+ \hline
+ \multicolumn{4}{c}{State $w_{1}$} \\
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{ c|c|c|c| } 
+  & L & M & R \\
+  \hline
+  U & 1,2\epsilon &1,3\epsilon  & 1,0 \\ 
+  \hline
+  D & 2,2 & 0,3 & 0,0  \\ 
+ \hline
+ \multicolumn{4}{c}{State $w_{2}$} \\
+\end{tabular}
+\end{center}
+This game has a unique Nash equilibrium $(\text{(D, D)}, \text{L})$ (that is, both types of player 1 choose D and player 2 chooses L). The expected payoffs at the equilibrium are $(2, 2)$.
+
+In the game in which player 2, as well as player 1, is informed of the state, the unique Nash equilibrium when the state is $\text{!1}$ is $(\text{U}, \text{R})$; the unique Nash equilibrium when the state is $\text{!2}$ is $(\text{U}, \text{M})$. In both cases the payoff is $(1, 3\epsilon)$, so that player 2 is worse off than he is when he is ill-informed.
+
+
+\break
+
+\centerline{\Large \textbf{References}}
+\bigskip
+
+\hangindent=18pt
+[1] M. Osborne and A. Rubinstein. \emph{A Course in Game Theory}. MIT Press, 1994.
+
+\end{document}
